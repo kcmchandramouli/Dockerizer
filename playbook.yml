@@ -1,0 +1,17 @@
+---
+- name: Configure Ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Vim
+      apt:
+        name: vim
+        state: present
+
+    - name: Copy Msg to txt file
+      shell: "echo 'Vim has been installed!' > /root/install-log.txt"
+      register: copy_text

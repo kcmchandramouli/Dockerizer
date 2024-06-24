@@ -33,10 +33,10 @@ build {
     ]
   }
 
-  // provisioner "ansible" {
-  //   playbook_file = "./playbook.yml"
-  //   extra_arguments = ["--become"]
-  // }
+  provisioner "ansible" {
+    playbook_file = "./playbook.yml"
+    extra_arguments = ["--become"]
+  }
 
   ## post-processor is for doing somethingafter after build. Here we are creating name & tage for the created docker image.
   post-processor "docker-tag" {
